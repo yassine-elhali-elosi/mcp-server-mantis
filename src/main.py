@@ -10,6 +10,7 @@ mcp = FastMCP("mantis")
 async def get_mantis_tasks(php_session_id: str, mantis_string_cookie: str, project_id: str) -> str:
     """
     Scrape tasks/activities from Mantis for a specific user and project.
+    Ask the user for their PHP session ID, Mantis string cookie and project ID.
     Args:
         php_session_id (str): PHP session ID for Mantis.
         mantis_string_cookie (str): Mantis string cookie for authentication.
