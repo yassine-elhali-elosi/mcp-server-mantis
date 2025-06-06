@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup
 
 # Requete vers l'URL d'un projet Mantis et scraping avec BeautifulSoup.
 # L'idéal serait d'avoir une API pour faire ça
-def scrape_project():
+def scrape_project(php_session_id: str, mantis_string_cookie: str, project_id: str):
     cookies = {
-        'PHPSESSID': 'bc4a917ce0d1d0868c97b001950f4f41',
+        'PHPSESSID': php_session_id,
         'MANTIS_secure_session': '0',
-        'MANTIS_STRING_COOKIE': '1385410052',
+        'MANTIS_STRING_COOKIE': mantis_string_cookie,
     }
 
     headers = {
@@ -29,7 +29,7 @@ def scrape_project():
     }
 
     params = {
-        'id': '72795', # l'identifiant d'un projet mantis
+        'id': project_id,
     }
 
     response = requests.get('https://mantis.elosi.com/view.php', params=params, cookies=cookies, headers=headers)
